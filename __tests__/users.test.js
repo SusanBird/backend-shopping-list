@@ -44,6 +44,17 @@ describe('users', () => {
     });
   });
 
+  it('signs in an existing user', async () => {
+    await UserService.create(mockUser);
+    const { email, password } = mockUser;
+    const res = await request(app)
+      .post('/api/v1/users/sessions')
+      .send({ email, password });
+    console.log(res.body);
+    expect(res.status).toBe(200);
+    expect(res.body).toEqual({ message: 'Signed in successfully!' });
+  });
+
   it('returns the current user', async () => {
     const [agent, user] = await registerAndLogin();
     const me = await agent.get('/api/v1/users/me');
