@@ -6,14 +6,10 @@ const UserService = require('../lib/services/UserService');
 const Item = require('../lib/models/Item');
 
 const mockUser = {
-  firstName: 'Test',
-  lastName: 'User',
   email: 'test@example.com',
   password: '123456',
 };
 const mockUser2 = {
-  firstName: 'Test',
-  lastName: 'User 2',
   email: 'test2@example.com',
   password: '123456',
 };
